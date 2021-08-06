@@ -39,7 +39,9 @@ export type ResolvedNavbarItem = NavbarItem | NavGroup<ResolvedNavbarItem>
 // user config
 export type SidebarItem = NavItem &
   Partial<NavLink> &
-  Partial<Pick<NavGroup<NavLink | SidebarItem | string>, 'children'>>
+  Partial<Pick<NavGroup<NavLink | SidebarItem | string>, 'children'>> & {
+    isGroup?: boolean
+  }
 export type SidebarConfigArray = (SidebarItem | string)[]
 export type SidebarConfigObject = Record<string, SidebarConfigArray>
 export type SidebarConfig = SidebarConfigArray | SidebarConfigObject

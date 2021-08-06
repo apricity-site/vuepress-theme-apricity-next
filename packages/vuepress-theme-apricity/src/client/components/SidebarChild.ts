@@ -45,36 +45,23 @@ const isActiveItem = (
 
 const renderItem = (
   item: ResolvedSidebarItem,
-  props: VNode['props'],
-  inner = false,
-  depth: number
-): VNode | null => {
-  const nav = h(NavLink, {
-    ...props,
-    item,
-  })
+  props: VNode['props']
+): VNode => {
   // if the item has link, render it as `<NavLink>`
-  if (!inner && item.link && item.link.indexOf('.html') !== -1) {
-    return nav
-  }
-
-  if (inner && item.link && item.link.indexOf('#') !== -1) {
-    return nav
+  if (item.link) {
+    return h(NavLink, {
+      ...props,
+      item,
+    })
   }
 
   // if the item only has text, render it as `<p>`
-  if (inner && !item.link && depth > 0) {
-    console.log(item)
-    return h('p', item.text)
-  }
-
-  return null
+  return h('p', props, item.text)
 }
 
 const renderChildren = (
   item: ResolvedSidebarItem,
-  depth: number,
-  inner: boolean
+  depth: number
 ): VNode | null => {
   if (!item.children?.length) {
     return null
@@ -87,51 +74,34 @@ const renderChildren = (
         'sidebar-sub-items': depth > 0,
       },
     },
-    item.children.map((child) => {
-      const childVNode = h(
+    item.children.map((child) =>
+      h(
         'li',
         h(SidebarChild, {
           item: child,
           depth: depth + 1,
-          inner: inner,
         })
       )
-      const route = useRoute()
-      if (
-        inner &&
-        child.link &&
-        child.link.indexOf('.html') !== -1 &&
-        !isActiveItem(route, child)
-      ) {
-        return null
-      }
-      return childVNode
-    })
+    )
   )
 }
 
 export const SidebarChild: FunctionalComponent<{
   item: ResolvedSidebarItem
   depth?: number
-  inner: boolean
-}> = ({ item, depth = 0, inner = false }) => {
+}> = ({ item, depth = 0 }) => {
   const route = useRoute()
   const active = isActiveItem(route, item)
 
   return [
-    renderItem(
-      item,
-      {
-        class: {
-          'sidebar-heading': depth === 0,
-          'sidebar-item': true,
-          active,
-        },
+    renderItem(item, {
+      class: {
+        'sidebar-heading': depth === 0,
+        'sidebar-item': true,
+        active,
       },
-      inner,
-      depth
-    ),
-    renderChildren(item, depth, inner),
+    }),
+    renderChildren(item, depth),
   ]
 }
 
@@ -144,10 +114,6 @@ SidebarChild.props = {
   },
   depth: {
     type: Number,
-    required: false,
-  },
-  inner: {
-    type: Boolean,
     required: false,
   },
 }

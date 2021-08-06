@@ -20,7 +20,7 @@ import { useRoute } from 'vue-router'
 import { usePageFrontmatter } from '@vuepress/client'
 import { isPlainObject, isString } from '@vuepress/shared'
 import type {
- ApricityThemeNormalPageFrontmatter,
+  DefaultThemeNormalPageFrontmatter,
   NavLink as NavLinkType,
   ResolvedSidebarItem,
 } from '../../shared'

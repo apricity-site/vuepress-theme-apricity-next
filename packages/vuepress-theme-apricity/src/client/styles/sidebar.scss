@@ -1,8 +1,11 @@
 @import '_variables';
-@import "common-sidebar";
 
 .sidebar {
-  @extend %sidebar;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
 
   a {
     display: inline-block;
@@ -11,6 +14,7 @@
   .navbar-links {
     display: none;
     border-bottom: 1px solid var(--c-border);
+    transition: border-bottom-color ease 0.3s;
     padding: 0.5rem 0 0.75rem 0;
 
     a {
