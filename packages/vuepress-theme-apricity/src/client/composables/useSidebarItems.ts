@@ -10,8 +10,8 @@ import {
   resolveLocalePath,
 } from '@vuepress/shared'
 import type {
-  DefaultThemeData,
-  DefaultThemeNormalPageFrontmatter,
+  ApricityThemeData,
+  ApricityThemeNormalPageFrontmatter,
   SidebarConfigArray,
   SidebarConfigObject,
   SidebarItem,
@@ -42,8 +42,8 @@ export const useSidebarItems = (): SidebarItemsRef => {
  * It should only be resolved and provided once
  */
 export const resolveSidebarItems = (
-  frontmatter: DefaultThemeNormalPageFrontmatter,
-  themeLocale: DefaultThemeData
+  frontmatter: ApricityThemeNormalPageFrontmatter,
+  themeLocale: ApricityThemeData
 ): ResolvedSidebarItem[] => {
   // get sidebar config from frontmatter > themeConfig
   const sidebarConfig = frontmatter.sidebar ?? themeLocale.sidebar ?? 'auto'

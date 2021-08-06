@@ -1,9 +1,9 @@
 import type {
-  DefaultThemeLocaleOptions,
-  DefaultThemeLocaleData,
+  ApricityThemeLocaleOptions,
+  ApricityThemeLocaleData,
 } from '../../shared'
 
-const defaultLocaleOptions: DefaultThemeLocaleOptions = {
+const defaultLocaleOptions: ApricityThemeLocaleOptions = {
   // navbar
   navbar: [],
   logo: null,
@@ -37,7 +37,7 @@ const defaultLocaleOptions: DefaultThemeLocaleOptions = {
   openInNewWindow: 'open in new window',
 }
 
-const defaultLocaleData: DefaultThemeLocaleData = {
+const defaultLocaleData: ApricityThemeLocaleData = {
   // navbar
   selectLanguageName: 'English',
 }
@@ -46,7 +46,7 @@ const defaultLocaleData: DefaultThemeLocaleData = {
  * Assign default options to `themeConfig`
  */
 export const assignDefaultLocaleOptions = (
-  localeOptions: DefaultThemeLocaleOptions
+  localeOptions: ApricityThemeLocaleOptions
 ): void => {
   if (!localeOptions.locales) {
     localeOptions.locales = {}

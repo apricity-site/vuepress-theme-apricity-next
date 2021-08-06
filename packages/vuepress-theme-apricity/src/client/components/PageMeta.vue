@@ -35,8 +35,8 @@ import {
   useSiteLocaleData,
 } from '@vuepress/client'
 import type {
-  DefaultThemePageData,
-  DefaultThemeNormalPageFrontmatter,
+ ApricityThemePageData,
+ ApricityThemeNormalPageFrontmatter,
   NavLink as NavLinkType,
 } from '../../shared'
 import { useThemeLocaleData } from '../composables'

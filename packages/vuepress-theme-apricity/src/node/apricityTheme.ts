@@ -1,8 +1,8 @@
 import type { Theme, ThemeConfig } from '@vuepress/core'
 import { path } from '@vuepress/utils'
 import type {
-  DefaultThemeLocaleOptions,
-  DefaultThemePluginsOptions,
+  ApricityThemeLocaleOptions,
+  ApricityThemePluginsOptions,
 } from '../shared'
 import {
   assignDefaultLocaleOptions,
@@ -15,17 +15,18 @@ import {
   resolveMediumZoomPluginOptions,
 } from './utils'
 
-export interface DefaultThemeOptions
+export interface ApricityThemeOptions
   extends ThemeConfig,
-    DefaultThemeLocaleOptions {
+    ApricityThemeLocaleOptions {
   /**
    * To avoid confusion with the root `plugins` option,
    * we use `themePlugins`
    */
-  themePlugins?: DefaultThemePluginsOptions
+  themePlugins?: ApricityThemePluginsOptions
+  wiki?: Record<string, any>
 }
 
-export const apricityTheme: Theme<DefaultThemeOptions> = ({
+export const apricityTheme: Theme<ApricityThemeOptions> = ({
   themePlugins = {},
   ...localeOptions
 }) => {
@@ -56,10 +57,6 @@ export const apricityTheme: Theme<DefaultThemeOptions> = ({
         filePathRelative,
       }
     },
-
-    extendsMarkdown: (md) => {
-    },
-
     plugins: [
       [
         '@vuepress/active-header-links',

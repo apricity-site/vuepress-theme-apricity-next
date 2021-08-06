@@ -1,11 +1,11 @@
 import type { GitPluginPageData } from '@vuepress/plugin-git'
 import type { NavLink, SidebarConfig } from './nav'
 
-export interface DefaultThemePageData extends GitPluginPageData {
+export interface ApricityThemePageData extends GitPluginPageData {
   filePathRelative: string
 }
 
-export interface DefaultThemePageFrontmatter {
+export interface ApricityThemePageFrontmatter {
   home?: boolean
   navbar?: boolean
   pageClass?: string
@@ -14,8 +14,8 @@ export interface DefaultThemePageFrontmatter {
   createTime?: Date
 }
 
-export interface DefaultThemeHomePageFrontmatter
-  extends DefaultThemePageFrontmatter {
+export interface ApricityThemeHomePageFrontmatter
+  extends ApricityThemePageFrontmatter {
   home: true
   heroImage?: string
   heroAlt?: string
@@ -34,8 +34,8 @@ export interface DefaultThemeHomePageFrontmatter
   footerHtml?: boolean
 }
 
-export interface DefaultThemeNormalPageFrontmatter
-  extends DefaultThemePageFrontmatter {
+export interface ApricityThemeNormalPageFrontmatter
+  extends ApricityThemePageFrontmatter {
   home?: false
   editLink?: boolean
   lastUpdated?: boolean

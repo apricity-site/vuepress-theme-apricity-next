@@ -1,11 +1,11 @@
 import type { MediumZoomPluginOptions } from '@vuepress/plugin-medium-zoom'
-import type { DefaultThemePluginsOptions } from '../../shared'
+import type { ApricityThemePluginsOptions } from '../../shared'
 
 /**
  * Resolve options for @vuepress/plugin-medium-zoom
  */
 export const resolveMediumZoomPluginOptions = (
-  themePlugins: DefaultThemePluginsOptions
+  themePlugins: ApricityThemePluginsOptions
 ): MediumZoomPluginOptions | boolean => {
   if (themePlugins?.mediumZoom === false) {
     return false

@@ -1,7 +1,7 @@
 import { defineUserConfig } from 'vuepress'
-import type { DefaultThemeOptions } from 'vuepress'
+import type { ApricityThemeOptions } from 'vuepress-theme-apricity/src/node'
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig<ApricityThemeOptions>({
   title: 'vuepress-theme-apricity',
   theme: 'apricity',
   themeConfig: {

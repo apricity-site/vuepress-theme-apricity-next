@@ -1,8 +1,9 @@
 import type { LocaleData } from '@vuepress/shared'
 import type { ThemeData } from '@vuepress/plugin-theme-data'
 import type { NavbarConfig, SidebarConfig } from './nav'
+import type { Page } from 'vuepress'
 
-export interface DefaultThemePluginsOptions {
+export interface ApricityThemePluginsOptions {
   /**
    * Enable @vuepress/plugin-active-header-links or not
    */
@@ -46,11 +47,11 @@ export interface DefaultThemePluginsOptions {
   prismjs?: boolean
 }
 
-export type DefaultThemeLocaleOptions = DefaultThemeData
+export type ApricityThemeLocaleOptions = ApricityThemeData
 
-export type DefaultThemeData = ThemeData<DefaultThemeLocaleData>
+export type ApricityThemeData = ThemeData<ApricityThemeLocaleData>
 
-export interface DefaultThemeLocaleData extends LocaleData {
+export interface ApricityThemeLocaleData extends LocaleData {
   /**
    * Home path of current locale
    *
@@ -252,4 +253,24 @@ export interface DefaultThemeLocaleData extends LocaleData {
    * sr-only message in `<OutboundLink>`
    */
   openInNewWindow?: string
+}
+
+interface Category {
+  name: string
+  key: string
+  projects: Project[]
+}
+interface Project {
+  name: string
+  key: string
+  description?: string
+  url?: string
+  pages?: Page[]
+  children: SidebarConfig
+}
+
+export declare type Workspace = {
+  name: string
+  key: string
+  categories: Category[]
 }
