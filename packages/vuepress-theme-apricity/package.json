@@ -26,7 +26,8 @@
     "build": "tsc --build tsconfig.build.json",
     "build:watch": "tsc --build -w tsconfig.build.json",
     "clean": "rimraf lib *.tsbuildinfo",
-    "copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib"
+    "copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib",
+    "tailwind:build": "npx tailwindcss-cli@latest build tailwind.config.css -c tailwind.config.js -o ./src/client/styles/tailwind.scss"
   },
   "dependencies": {
     "@vuepress/plugin-docsearch": "^2.0.0-alpha.1",
