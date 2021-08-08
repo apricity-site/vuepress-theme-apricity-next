@@ -9,6 +9,28 @@ export default defineUserConfig<ApricityThemeOptions>({
     docsBranch: 'main',
     docsDir: 'example',
     lastUpdatedText: '',
+    wiki: [
+      {
+        name: '后端',
+        key: 'back-end',
+        categories: [
+          {
+            name: 'java',
+            key: 'java',
+            projects: [
+              {
+                name: 'java基础',
+                key: 'java-base',
+                children: [
+                  '/wiki/back-end/java/java-base/JavaBase.md',
+                  '/wiki/back-end/java/java-base/JavaBaseHaHa.md',
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
     // sidebar: [
     //   // SidebarItem
     //   {

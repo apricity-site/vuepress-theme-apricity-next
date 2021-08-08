@@ -2,7 +2,7 @@ import type { Theme, ThemeConfig } from '@vuepress/core'
 import { path } from '@vuepress/utils'
 import type {
   ApricityThemeLocaleOptions,
-  ApricityThemePluginsOptions,
+  ApricityThemePluginsOptions, Workspace,
 } from '../shared'
 import {
   assignDefaultLocaleOptions,
@@ -23,7 +23,7 @@ export interface ApricityThemeOptions
    * we use `themePlugins`
    */
   themePlugins?: ApricityThemePluginsOptions
-  wiki?: Record<string, any>
+  wiki?: Workspace[]
 }
 
 export const apricityTheme: Theme<ApricityThemeOptions> = ({
@@ -31,9 +31,6 @@ export const apricityTheme: Theme<ApricityThemeOptions> = ({
   ...localeOptions
 }) => {
   assignDefaultLocaleOptions(localeOptions)
-
-  const layouts = path.resolve(__dirname, '../client/layouts')
-  console.log('layouts', layouts)
 
   return {
     name: 'vuepress-theme-apricity',
