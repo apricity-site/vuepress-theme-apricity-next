@@ -260,7 +260,7 @@ interface Category {
   key: string
   projects: Project[]
 }
-interface Project {
+export interface Project {
   name: string
   key: string
   description?: string
