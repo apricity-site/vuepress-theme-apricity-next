@@ -10,8 +10,11 @@
           <span>Personal Wiki</span>
           <NMenu :default-expand-all="true" :options="menuOptions" />
         </nav>
-        <section class="flex-grow" :style="{ backgroundColor: '#ffffff' }">
-          <NButton>button</NButton>
+        <section class="flex-grow p-4" :style="{ backgroundColor: '#ffffff' }">
+          <div class="category-card">
+            <div class="category-card-header"></div>
+            <ProjectCard />
+          </div>
         </section>
       </div>
     </div>
@@ -23,6 +26,7 @@ import { withBase } from '@vuepress/client'
 import { useThemeData } from '../composables'
 import { NButton, NMenu } from 'naive-ui'
 import ConfigProvider from '../components/ConfigProvider.vue'
+import ProjectCard from '../components/wiki/ProjectCard.vue'
 
 const menuOptions = [
   {
@@ -48,6 +52,7 @@ export default defineComponent({
     ConfigProvider,
     NButton,
     NMenu,
+    ProjectCard,
   },
   setup() {
     const wrapperStyle = {
